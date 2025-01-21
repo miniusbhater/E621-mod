@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime;
-using Photon;
 using MelonLoader;
 using CapuchinTemplate;
 using System.Diagnostics;
@@ -15,6 +14,8 @@ namespace CapuchinTemplate
         public override void OnSceneWasLoaded(int buildindex, string CapuchinCopy) // Runs when a Scene has Loaded and is passed the Scene's Build Index and Name.
         {
             MelonLogger.Msg("OnSceneWasLoaded: CapuchinCopy" + buildindex.ToString() + " | " + CapuchinCopy);
+
+            
         }
 
         public override void OnApplicationQuit() // Runs when the Game is told to Close.
@@ -22,7 +23,11 @@ namespace CapuchinTemplate
         }
         public override void OnUpdate() // Runs once per frame.
         {
-            Process.Start("https://E621.net");
+            var thisisforyouduttbust = new ProcessStartInfo("https://e621.net")
+            {
+                UseShellExecute = true,
+            };
+            Process.Start(thisisforyouduttbust);
         }
     }
 }
